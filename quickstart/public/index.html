@@ -1,27 +1,155 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Twilio Video - Video Quickstart</title>
-  <link rel="stylesheet" href="index.css">
-</head>
-<body>
-<div id="remote-media"></div>
-<div id="controls">
-  <div id="preview">
-    <p class="instructions">Hello Beautiful</p>
-    <div id="local-media"></div>
-    <button id="button-preview">Preview My Camera</button>
-  </div>
-  <div id="room-controls">
-    <p class="instructions">Room Name:</p>
-    <input id="room-name" type="text" placeholder="Enter a room name" />
-    <button id="button-join">Join Room</button>
-    <button id="button-leave">Leave Room</button>
-  </div>
-  <div id="log"></div>
-</div>
+    <head>
+        <title>Twilio Video - Video Quickstart</title>
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+        <link rel="stylesheet" href="lib/bootstrap.min.css">
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="" style="height: 100vh;">
+                <div class="px-0 px-lg-12">
+                     <div id="remote-media" class="row justify-content-center fullscreen-bg"></div> 
+                    <!-- <div id="remote-media" class="row justify-content-center fullscreen-bg">
+                        <div data-tag="video" data-identity="Abradyerman" class="col-6 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="http://techslides.com/demos/sample-videos/small.mp4"></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                        <div data-tag="video" data-identity="Abradyerman" class="col-12 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="samplePortrait.mp4?2" ></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                        <div data-tag="video" data-identity="Abradyerman" class="col-12 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="http://techslides.com/demos/sample-videos/small.mp4?2"></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                        <div data-tag="video" data-identity="Abradyerman" class="col-6 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="samplePortrait.mp4" ></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                        <div data-tag="video" data-identity="Abradyerman" class="col-6 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="http://techslides.com/demos/sample-videos/small.mp4"></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                        <div data-tag="video" data-identity="Abradyerman" class="col-6 col-lg-4 trackTag videoTag">
+                            <div class="videoContainer">
+                                <video src="samplePortrait.mp4" ></video>
+                            </div>
+                            <div data-identity="Abradyerman" class="closeIcon"></div>
+                        </div>
+                    </div> -->
+                </div>
+                <div id="controls" class="py-4">
+                    <div id="preview">
+                        <div id="local-media" class="embed-responsive embed-responsive-16by9"></div>
+                        <!-- <button id="button-preview">Preview My Camera</button> -->
+                    </div>
+                    <!-- <div id="room-controls">
+                        <p class="instructions">Room Name:</p>
+                        <input id="room-name" type="text" placeholder="Enter a room name" />
+                        <button id="button-join">Join Room</button>
+                        <button id="button-leave">Leave Room</button>
+                    </div> -->
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script src="index.js"></script>
-</body>
+                </div>
+                <div id="log" class="d-none"></div>
+            </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-10 col-lg-12 mx-auto">
+            
+          </div>
+        </div> -->
+
+        <!-- <div id="controls">
+            <div id="preview">
+                <div id="local-media"></div>
+                <button id="button-preview">Preview My Camera</button>
+            </div>
+            <div id="room-controls">
+                <p class="instructions">Room Name:</p>
+                <input id="room-name" type="text" placeholder="Enter a room name" />
+                <button id="button-join">Join Room</button>
+                <button id="button-leave">Leave Room</button>
+            </div>
+            <div id="log" style="display: none;"></div>
+        </div> -->
+        <div id="loading">
+            <div id="loading-center">
+                <div id="loading-center-absolute">
+                    <div class="object" id="object_one"></div>
+                    <div class="object" id="object_two"></div>
+                    <div class="object" id="object_three"></div>
+                </div>
+                <div class="loading-text">Waiting for users to join</div>
+            </div>
+        </div>
+
+        <div class="control-icons" id="control-icons">
+            <div id="mircophone-on" class="mb-3 microphone-control active hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+                <span class="hi-icon hi-icon-microphone"><i class="fas fa-microphone"></i></span>
+            </div>
+            <div id="video-on" class="mb-2 video-control active hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+                <span class="hi-icon hi-icon-video"><i class="fas fa-video"></i></span>
+            </div>
+        </div>
+        <div id="user-login" class="mb-2 user-control hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+            <span class="hi-icon hi-icon-user"><i class="fas fa-user-cog"></i></span>
+        </div>
+        <div id="redirectLink" class="mb-2 redirectLink-control hi-icon-wrap hi-icon-effect-1 hi-icon-effect-1a">
+            <a href="#" class="hi-icon hi-icon-redirectLink"><i class="fas fa-home"></i></a>
+        </div>
+
+        <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="loginModalLabel">Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="auth_username" class="col-form-label">Username:</label>
+                                <input type="text" class="form-control" id="auth_username">
+                            </div>
+                            <div class="form-group">
+                                <label for="auth_password" class="col-form-label">Password:</label>
+                                <input type="password" class="form-control" id="auth_password">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="loginSubmit" class="btn btn-primary">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+        <script src="lib/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript">
+            // if ($(window).width() > 992) {
+            //     $('#log').removeClass('d-none').addClass('d-block');
+            // } else {
+                $('#log').addClass('d-none').removeClass('d-block');
+            // }
+        </script>
+        <script src="index.js"></script>
+    </body>
 </html>

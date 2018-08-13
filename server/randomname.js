@@ -1,25 +1,25 @@
 'use strict';
 
 var ADJECTIVES = [
-  'Abrasive', 'Brash', 'Callous', 'Daft', 'Eccentric', 'Fiesty', 'Golden',
-  'Holy', 'Ignominious', 'Joltin', 'Killer', 'Luscious', 'Mushy', 'Nasty',
-  'OldSchool', 'Pompous', 'Quiet', 'Rowdy', 'Sneaky', 'Tawdry',
-  'Unique', 'Vivacious', 'Wicked', 'Xenophobic', 'Yawning', 'Zesty'
+  'Abra', 'sive', 'Brash', 'Cal', 'lous', 'Daft', 'Ec', 'cent', 'ric', 'Fiesty', 'Golden',
+  'Holy', 'Ignom', 'inious', 'Jol', 'tin', 'Ki', 'ller', 'Lus', 'cio', 'us', 'Mushy', 'Nasty',
+  'OldSc', 'hool', 'Po', 'mpous', 'Qu', 'iet', 'Rowdy', 'Sneaky', 'Tawdry',
+  'Unique', 'Viva', 'cious', 'Wicked', 'Xe', 'nopho', 'bic', 'Yaw', 'ning', 'Zesty'
 ];
 
 var FIRST_NAMES = [
-  'Anna', 'Bobby', 'Cameron', 'Danny', 'Emmett', 'Frida', 'Gracie', 'Hannah',
-  'Isaac', 'Jenova', 'Kendra', 'Lando', 'Mufasa', 'Nate', 'Owen', 'Penny',
-  'Quincy', 'Roddy', 'Samantha', 'Tammy', 'Ulysses', 'Victoria', 'Wendy',
-  'Xander', 'Yolanda', 'Zelda'
+  'Anna', 'Bob', 'by', 'Cam', 'eron', 'Da', 'nny', 'Emm', 'ett', 'Frida', 'Grac', 'ie', 'Ha', 'nah',
+  'I', 'saac', 'Jen', 'ova', 'Ken', 'dra', 'Lando', 'Muf', 'asa', 'Nate', 'Owen', 'Penny',
+  'Qui', 'ncy', 'Ro', 'ddy', 'Sam', 'ant', 'ha', 'Tammy', 'Uly', 'sses', 'Vict', 'ria', 'Wen', 'dy',
+  'Xan', 'der', 'Yola', 'nda', 'Zel', 'da'
 ];
 
 var LAST_NAMES = [
-  'Anchorage', 'Berlin', 'Cucamonga', 'Davenport', 'Essex', 'Fresno',
-  'Gunsight', 'Hanover', 'Indianapolis', 'Jamestown', 'Kane', 'Liberty',
-  'Minneapolis', 'Nevis', 'Oakland', 'Portland', 'Quantico', 'Raleigh',
-  'SaintPaul', 'Tulsa', 'Utica', 'Vail', 'Warsaw', 'XiaoJin', 'Yale',
-  'Zimmerman'
+  'Anch', 'orage', 'Ber', 'lin', 'Cuc', 'amo', 'nga', 'Dav', 'enp', 'rt', 'Es', 'sex', 'Fr', 'esno',
+  'Gun', 'sight', 'Hano', 'ver', 'India', 'na', 'polis', 'James', 'town', 'Kane', 'Lib', 'erty',
+  'Min', 'ne', 'apo', 'lis', 'Nev', 'is', 'Oakland', 'Port', 'land', 'Quan', 'tico', 'Rale', 'igh',
+  'Sai', 'ntP', 'aul', 'Tul', 'sa', 'Ut', 'ica', 'Vail', 'War', 'saw', 'Xi', 'aoJin', 'Yale',
+  'Zimm', 'erman'
 ];
 
 function randomItem(array) {
